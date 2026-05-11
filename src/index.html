@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Car Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-flag-checkered"></i> RACING CAR GAME</h1>
+            <p class="subtitle">Race from Start to Finish using your keyboard!</p>
+        </header>
+
+        <div class="game-area">
+            <div class="game-info">
+                <div class="info-box">
+                    <h3><i class="fas fa-tachometer-alt"></i> Game Status</h3>
+                    <div class="status">
+                        <div class="status-item">
+                            <span class="label">Time:</span>
+                            <span id="timer">00:00</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Position:</span>
+                            <span id="position">0%</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">Speed:</span>
+                            <span id="speed">0 km/h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="startBtn" class="btn start-btn"><i class="fas fa-play"></i> Start Game</button>
+                    <button id="resetBtn" class="btn reset-btn"><i class="fas fa-redo"></i> Reset Game</button>
+                    <button id="helpBtn" class="btn help-btn"><i class="fas fa-question-circle"></i> Controls Help</button>
+                </div>
+            </div>
+
+            <div class="track-container">
+                <div class="track">
+                    <div class="start-line">
+                        <span>START</span>
+                    </div>
+                    <div class="finish-line">
+                        <span>FINISH</span>
+                    </div>
+                    <div class="car" id="car">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="obstacles">
+                        <div class="obstacle" style="left: 30%; top: 20%;"></div>
+                        <div class="obstacle" style="left: 60%; top: 70%;"></div>
+                        <div class="obstacle" style="left: 45%; top: 50%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-keyboard"></i> Controls</h3>
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <div class="key"><i class="fas fa-arrow-up"></i></div>
+                        <span>Move Forward / Accelerate</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key"><i class="fas fa-arrow-down"></i></div>
+                        <span>Move Backward / Brake</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key"><i class="fas fa-arrow-left"></i></div>
+                        <span>Turn Left</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key"><i class="fas fa-arrow-right"></i></div>
+                        <span>Turn Right</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key">SPACE</div>
+                        <span>Emergency Brake</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key">R</div>
+                        <span>Reset Game</span>
+                    </div>
+                    <div class="control-item">
+                        <div class="key">P</div>
+                        <span>Pause/Resume</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-rules">
+            <h3><i class="fas fa-info-circle"></i> How to Play</h3>
+            <ul>
+                <li>Use arrow keys to control the car: Up to accelerate, Down to brake, Left/Right to steer.</li>
+                <li>Navigate from the START line to the FINISH line as quickly as possible.</li>
+                <li>Avoid the red obstacles - hitting them will slow you down!</li>
+                <li>Press SPACE for emergency brake to stop immediately.</li>
+                <li>Press R to reset the game at any time.</li>
+                <li>Press P to pause or resume the game.</li>
+                <li>Try to complete the track in the shortest time possible!</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Racing Game &copy; 2024 | Created with <i class="fas fa-heart"></i> for fun!</p>
+        </footer>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2><i class="fas fa-trophy"></i> Race Complete!</h2>
+            <p>Congratulations! You've reached the finish line!</p>
+            <div class="result-stats">
+                <p><strong>Final Time:</strong> <span id="finalTime">00:00</span></p>
+                <p><strong>Best Time:</strong> <span id="bestTime">--:--</span></p>
+            </div>
+            <button id="playAgainBtn" class="btn start-btn"><i class="fas fa-play"></i> Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
